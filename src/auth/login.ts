@@ -7,6 +7,7 @@ const SCOPES = [
   'user-top-read',
   'user-read-recently-played',
   'playlist-read-private',
+  'user-follow-read',
 ];
 const AUTH_URL = new URL('https://accounts.spotify.com/authorize');
 

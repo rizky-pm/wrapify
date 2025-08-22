@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import Sidebar from './Sidebar';
+import Navbar from './Navbar';
 
 const AuthenticatedRoot = () => {
   const accessToken = localStorage.getItem('spotify_access_token');
@@ -9,8 +9,8 @@ const AuthenticatedRoot = () => {
   }
 
   return (
-    <main className='flex'>
-      <Sidebar />
+    <main className='flex flex-col justify-center items-center'>
+      <Navbar />
       <Outlet />
     </main>
   );

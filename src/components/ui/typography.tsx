@@ -9,7 +9,7 @@ export function TypographyH1({ children, className }: Props) {
   return (
     <h1
       className={cn(
-        'scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance',
+        'scroll-m-20 text-4xl font-extrabold tracking-tight text-balance',
         className
       )}
     >
@@ -20,7 +20,7 @@ export function TypographyH1({ children, className }: Props) {
 
 export function TypographyH2({ children }: Props) {
   return (
-    <h2 className='scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0'>
+    <h2 className='scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0'>
       {children}
     </h2>
   );

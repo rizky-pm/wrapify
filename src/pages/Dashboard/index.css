@@ -1,0 +1,20 @@
+.profile-grid {
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 32px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'avatar displayName'
+    'avatar details';
+}
+
+.avatar {
+  grid-area: avatar;
+}
+.displayName {
+  grid-area: displayName;
+}
+.details {
+  grid-area: details;
+}

@@ -12,13 +12,31 @@ export const useGetMe = () => {
   });
 };
 
-export const useGetUsersTopItems = () => {
-  return useQuery({
-    queryKey: ['spotify-top-artists'],
-    queryFn: async () => {
-      const { data } = await api.get('/me/top/artists');
+export function useGetUsersTopItems(
+  items: 'artists',
+  limit?: number,
+  time_range?: 'short_term' | 'medium_term' | 'long_term'
+): ReturnType<typeof useQuery<UsersTopArtists>>;
 
+export function useGetUsersTopItems(
+  items: 'tracks',
+  limit?: number,
+  time_range?: 'short_term' | 'medium_term' | 'long_term'
+): ReturnType<typeof useQuery<UsersTopTracks>>;
+
+export function useGetUsersTopItems(
+  items: 'artists' | 'tracks',
+  limit: number = 20,
+  time_range: 'short_term' | 'medium_term' | 'long_term' = 'long_term'
+) {
+  return useQuery({
+    queryKey: ['spotify-top-items', items, limit, time_range],
+    queryFn: async () => {
+      const { data } = await api.get<UsersTopArtists | UsersTopTracks>(
+        `/me/top/${items}?limit=${limit}&time_range=${time_range}`
+      );
       return data;
     },
+    enabled: !!items,
   });
-};
+}
